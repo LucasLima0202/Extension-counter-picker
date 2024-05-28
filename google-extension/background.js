@@ -19,7 +19,7 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
       func: contarCaracteres
     }).then((results) => {
       for (const frameResult of results) {
-        console.log('Resultado do script:', frameResult.result);
+        console.log('Script result:', frameResult.result);
       }
     }).catch(err => console.error('Erro ao executar o script:', err));
   } else if (info.menuItemId === "colorPicker" && tab.url.startsWith("http")) {
@@ -28,18 +28,18 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
       files: ["colorpicker.js"]
     }).then((results) => {
       for (const frameResult of results) {
-        console.log('Resultado do script:', frameResult.result);
+        console.log('Script result', frameResult.result);
       }
-    }).catch(err => console.error('Erro ao executar o script:', err));
+    }).catch(err => console.error('Error executing the script:', err));
   }
 });
 
 function contarCaracteres() {
   let textoSelecionado = window.getSelection().toString().replace(/\s/g, '');
   if (textoSelecionado.length > 0) {
-    alert(`Número de caracteres selecionados (sem espaços): ${textoSelecionado.length}`);
+    alert(`Number of selected characters (without spaces): ${textoSelecionado.length}`);
   } else {
-    alert('Nenhum texto selecionado');
+    alert('No text selected');
   }
 }
 

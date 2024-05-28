@@ -8,7 +8,7 @@ function createColorPicker() {
   
     colorPicker.addEventListener('input', function() {
       var selectedColor = colorPicker.value;
-      console.log('Cor selecionada: #', selectedColor);
+      console.log('Selected color:', selectedColor);
     });
   }
   
